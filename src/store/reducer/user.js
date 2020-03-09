@@ -7,36 +7,39 @@ const defaultState = {
 }
 
 
-export default (state = defaultState, action) => {
-            let newState = {...state}
-    switch (action.type) {
-        case 'add_num':
-            newState.n++
-            return newState
-        break;
-        case 'minus_num':
-            newState.n--
-            return newState
-         case 'change_num':
-            newState.n=action.value
-            return newState
-        default:
+// export default (state = defaultState, action) => {
+//             let newState = {...state}
+//     switch (action.type) {
+//         case 'add_num':
+//             newState.n++
+//             return newState
+//         break;
+//         case 'minus_num':
+//             newState.n--
+//             return newState
+//          case 'change_num':
+//             newState.n=action.value
+//             return newState
+//         default:
 
-    }
-    return state
-}
-
-// export default handleActions({
-//     login_action:(state,action)=>{
-//         let newUserState = Object.assign({},state);
-//         newUserState.username = action.payload.info.username;
-//         newUserState.userPic = action.payload.info.userPic;
-//         return newUserState;
-//     },
-//     user_action:(state,action)=>{
-//         console.log(action);
-//         let newImgUrlState = Object.assign({},state);
-//         newImgUrlState.userPic = action.payload;
-//         return newImgUrlState;
 //     }
-// },defaultState)
+//     return state
+// }
+
+export default handleActions({
+    add_num:(state,action)=>{
+        let newState = Object.assign({},state);
+        newState.n++
+        return newState;
+    },
+    minus_num:(state,action)=>{
+        let newState = Object.assign({},state);
+        newState.n--
+        return newState;
+    },
+    change_num:(state,action)=>{
+        let newState = Object.assign({},state);
+        newState.n=action.value
+        return newState;
+    }
+},defaultState)
