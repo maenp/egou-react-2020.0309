@@ -23,5 +23,5 @@ module.exports = override(
         "@hoc":path.join(__dirname,"./src/hoc"),
     }),
     //配置装饰器的
-    // addDecoratorsLegacy()
+    addDecoratorsLegacy()
 );

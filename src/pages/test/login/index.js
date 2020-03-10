@@ -2,6 +2,20 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {NavLink} from "react-router-dom";
 import {CHANGE_NUM} from '@actions/test'
+const mapStateToProps=(state)=>{
+    return{
+        user:state.user
+    }
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        changeHandler:(e)=>{
+            console.log(e.target)
+            dispatch(CHANGE_NUM(e.target.value))
+        }
+    }
+}
+@connect(mapStateToProps,mapDispatchToProps)
 class Login extends Component {
     constructor() {
         super();
@@ -18,18 +32,6 @@ class Login extends Component {
         );
     }
 }
-const mapStateToProps=(state)=>{
-    return{
-        user:state.user
-    }
-}
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        changeHandler:(e)=>{
-            console.log(e.target)
-            dispatch(CHANGE_NUM(e.target.value))
-        }
-    }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+
+export default Login;
