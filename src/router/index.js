@@ -1,8 +1,9 @@
 import {
     Home, Login,Home_1
 } from "@pages/test"
-
+import allActivity from './allActivity'
 export const routes = [
+    ...allActivity,
     {
         key: "/home",
         path: "/home",

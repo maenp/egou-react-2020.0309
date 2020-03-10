@@ -9,7 +9,7 @@ class App extends Component {
             <Fragment>
                 <Switch>
                     {renderRoutes(routes)}
-                    <Redirect from="/" to="/home"/>
+                    <Redirect from="/" to="/all"/>
                 </Switch>
             </Fragment>
         );
