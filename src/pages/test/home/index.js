@@ -3,6 +3,8 @@ import store from '@store'
 import {ADD_NUM,MINUS_NUM} from '@actions/test'
 import {Button} from "antd-mobile";
 
+import TabBar from "@components/test/tabBar2";
+
 class Home extends Component {
     constructor() {
         super();
@@ -15,12 +17,13 @@ class Home extends Component {
     render() {
         let {n}=this.state
         return (
-            <div>
+            <>
                 首页
                 <h2>{n}</h2>
                 <Button onClick={this.addHandler.bind(this)}>点击增加</Button>
                 <Button type="primary" onClick={this.minusHandler.bind(this)}>点击减少</Button>
-            </div>
+                <TabBar></TabBar>
+            </>
         );
     }
     addHandler(){
