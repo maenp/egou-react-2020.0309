@@ -27,7 +27,7 @@ export default (routes) => {
         )} />
     }
     return routes.map(route => {
-        if (route.children) {
+        if (route.children&&route.children.length) {
             return eashChildrenRoute(route)
         } else {
             return <Route path={route.path} key={route.path} render={(props) => {

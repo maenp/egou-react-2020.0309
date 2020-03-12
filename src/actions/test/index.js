@@ -4,6 +4,9 @@ export const ADD_NUM={
 export const MINUS_NUM = {
     type: 'minus_num'
 }
+export const USER = {
+    type: 'user_update'
+}
 
 
 export const CHANGE_NUM=(value)=>{
