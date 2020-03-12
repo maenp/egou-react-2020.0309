@@ -1,5 +1,4 @@
 import {fetch as fetchPro} from "whatwg-fetch"
-import fetchJsonp from 'fetch-jsonp'
 import qs from "qs"
 import store from '@store'
 import {USER} from "@actions/test";
