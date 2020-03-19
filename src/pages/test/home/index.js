@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import store from '@store'
 import {ADD_NUM,MINUS_NUM} from '@actions/test'
 import {Button} from "antd-mobile";
-
 import TabBar from "@components/test/tabBar2";
+
+
 
 class Home extends Component {
     constructor() {
@@ -23,6 +24,7 @@ class Home extends Component {
                 <Button onClick={this.addHandler.bind(this)}>点击增加</Button>
                 <Button type="primary" onClick={this.minusHandler.bind(this)}>点击减少</Button>
                 <TabBar flag={100}/>
+
             </>
         );
     }

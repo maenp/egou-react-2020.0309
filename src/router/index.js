@@ -1,6 +1,7 @@
 import {
-    Home, Login,Home_1
+    Home, Login,Home_1,Ts
 } from "@pages/test"
+import noPage from '@pages/noPage'
 import allActivity from './allActivity'
 export const routes = [
     ...allActivity,
@@ -27,4 +28,17 @@ export const routes = [
         component: Login,
         meta: {}
     },
+    {
+        key: "/typescript",
+        path: "/typescript",
+        name: "TypeScript",
+        component: Ts,
+        meta: {}
+    },
+    // {
+    //     path: '*',
+    //     name: "TypeScript",
+    //     component: noPage,
+    //     meta: {}
+    // }
 ]

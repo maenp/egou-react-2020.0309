@@ -13,3 +13,7 @@ export const Login  = Loadable({
     loader:()=>import("./login"),
     loading:Loading
 })
+export const Ts  = Loadable({
+    loader:()=>import("./Ts"),
+    loading:Loading
+})

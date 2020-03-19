@@ -1,6 +1,6 @@
 'use strict';
-
 const fs = require('fs');
+const useTypeScript = fs.existsSync(paths.appTsConfig);
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
