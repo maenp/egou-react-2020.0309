@@ -15,6 +15,7 @@ class H5NumberInputExample extends Component {
     state = {
         type: 'money',
     }
+
     render() {
         const { getFieldProps } = this.props.form;
         const { type } = this.state;
@@ -22,7 +23,7 @@ class H5NumberInputExample extends Component {
             <Input>
                 <List>
                     <InputItem
-                        {...getFieldProps('money3')}
+                        {...getFieldProps('money3',)}
                         type={type}
                         defaultValue={100}
                         placeholder="start from left"
@@ -41,7 +42,7 @@ class H5NumberInputExample extends Component {
                     <InputItem
                         {...getFieldProps('money2', {
                             normalize: (v, prev) => {
-                                if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {
+                                if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {//小数点后只允许输入两位
                                     if (v === '.') {
                                         return '0.';
                                     }
@@ -56,12 +57,12 @@ class H5NumberInputExample extends Component {
                         onVirtualKeyboardConfirm={v => console.log('onVirtualKeyboardConfirm:', v)}
                         clear
                         moneyKeyboardWrapProps={moneyKeyboardWrapProps}
-                        disabledKeys={['.', '0', '3']}
+                        // disabledKeys={['.', '0', '3']}
                     >数字键盘</InputItem>
                     <List.Item>
                         <div
                             style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-                            onClick={() => this.inputRef.focus()}
+                            onClick={this.clickHandler.bind(this)}
                         >
                             click to focus
                         </div>
@@ -69,6 +70,10 @@ class H5NumberInputExample extends Component {
                 </List>
             </Input>
         );
+    }
+    clickHandler(){
+        console.log(this.props.form.getFieldsValue())
+        this.props.form.getFieldsValue()
     }
 }
 
