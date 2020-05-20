@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowUnreachableCode": true, // 不报告执行不到的代码错误。
+    "allowUnusedLabels": false,    // 不报告未使用的标签错误
+    "alwaysStrict": false, // 以严格模式解析并为每个源文件生成 "use strict"语句
+    "strictFunctionTypes": false, // 对函数类型更加严格的检查。0504
+    "strictPropertyInitialization": false,//如果属性的值不能是 undefined ，那么它必须在构造函数中进行初始化。0504
+    "noImplicitAny": false, // 是否默认禁用 any
+
+    "experimentalDecorators": true,//允许使用装饰器
+    "allowJs": true,//编译时，允许有 js 文件
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,//允许引入没有默认导出的模块
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",//jsx 的编译方式
+    //编译 js 的时候，删除掉注释
+    "removeComments": true
+    //    "noEmitOnError": false,
+    //    "locale":"cn"
+  },
+  "include": [
+    "src"
+  ]
+}

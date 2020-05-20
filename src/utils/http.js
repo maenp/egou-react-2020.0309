@@ -13,7 +13,7 @@ let defaultParams = { //设置默认参数
 };
 console.log(defaultParams,'store')
 
-const get=(url, data)=>{
+export const get=(url, data)=>{
     if(data){
         let str="";
         for(let key in data){
@@ -29,7 +29,7 @@ const get=(url, data)=>{
     }).then(res=>res.json)
 
 };
-const post=(url,data)=>{
+export const post=(url,data)=>{
     return fetchPro(url,{
         method:'POST',
         credentials:'include',
@@ -65,12 +65,13 @@ export const jsonp = (url) => {
         return;
     }
     return new Promise((resolve,reject) => {
-        window.jsonCallBack =(result) => {
+        let time=Math.ceil(Math.random()*300);//区分多个jsonp请求
+        window['jsonCallBack'+time] =(result) => {
             resolve(result)
         }
         let JSONP=document.createElement("script");
         JSONP.type="text/javascript";
-        JSONP.src=`${url}&callback=jsonCallBack`;
+        JSONP.src=`${url}&callback=jsonCallBack${time}`;
         document.getElementsByTagName("head")[0].appendChild(JSONP);
         setTimeout(() => {
             document.getElementsByTagName("head")[0].removeChild(JSONP)
@@ -78,9 +79,3 @@ export const jsonp = (url) => {
     })
 }
 
-
-
-export default {
-    get,
-    post
-}

@@ -1,6 +1,6 @@
 //相当于vue中的vue.config.js
-const { override, fixBabelImports ,addWebpackAlias, addDecoratorsLegacy} = require('customize-cra');
-const path=require('path')
+const {override, fixBabelImports, addWebpackAlias, addDecoratorsLegacy} = require('customize-cra');
+const path = require('path')
 
 
 /*
@@ -11,7 +11,10 @@ const path=require('path')
 * */
 const paths = require('react-scripts/config/paths');//地址文件
 const publicUrlOrPath = '//static1.egou.com/p/m_egou/hd/2020/idiomGuess/'//自定义静态文件路径
-paths.publicUrlOrPath = publicUrlOrPath // 修改打包文件地址
+if (process.env.NODE_ENV === 'production') {//生产环境下
+    paths.publicUrlOrPath = publicUrlOrPath // 修改打包文件地址
+}
+
 // paths.appBuild = path.join(path.dirname(paths.appBuild), 'dist'); // 修改打包目录
 
 
@@ -24,17 +27,17 @@ module.exports = override(
     }),
     //配置别名
     addWebpackAlias({
-        "@":path.join(__dirname,"./src"),
-        "@components":path.join(__dirname,"./src/components"),
-        "@api":path.join(__dirname,"./src/api"),
-        "@actions":path.join(__dirname,"./src/actions"),
-        "@common":path.join(__dirname,"./src/common"),
-        "@lib":path.join(__dirname,"./src/lib"),
-        "@pages":path.join(__dirname,"./src/pages"),
-        "@router":path.join(__dirname,"./src/router"),
-        "@store":path.join(__dirname,"./src/store"),
-        "@utils":path.join(__dirname,"./src/utils"),
-        "@hoc":path.join(__dirname,"./src/hoc"),
+        "@": path.join(__dirname, "./src"),
+        "@components": path.join(__dirname, "./src/components"),
+        "@api": path.join(__dirname, "./src/api"),
+        "@actions": path.join(__dirname, "./src/actions"),
+        "@common": path.join(__dirname, "./src/common"),
+        "@lib": path.join(__dirname, "./src/lib"),
+        "@pages": path.join(__dirname, "./src/pages"),
+        "@router": path.join(__dirname, "./src/router"),
+        "@store": path.join(__dirname, "./src/store"),
+        "@utils": path.join(__dirname, "./src/utils"),
+        "@hoc": path.join(__dirname, "./src/hoc"),
     }),
     //配置装饰器的
     addDecoratorsLegacy()

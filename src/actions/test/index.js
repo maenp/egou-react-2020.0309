@@ -12,6 +12,7 @@ export const USER = {
 export const CHANGE_NUM=(value)=>{
     return (dispatch)=>{
     //处理异步请求
+    //...
         dispatch({
             type: 'change_num',
             value

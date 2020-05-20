@@ -1,21 +1,25 @@
 import React, {Component} from 'react';
 import {Button} from 'antd-mobile'
 
-class Test extends Component {
-    constructor() {
-        super();
+interface IProps {
+
+}
+
+class Test extends Component<IProps> {
+    constructor(props:IProps) {
+        super(props);
         window.nativeExpressRewardedVideoAdDidClose = this.videoCallBackSucceed.bind( this ); //播放成功
     }
     render() {
         return (
             <div>
-                <Button type='primary' onClick={this.showRewardAlert.bind(this)}>showRewardAlert</Button><br/>
-                <Button onClick={this.showRewardedVideoADWithSlotId.bind(this)}>showRewardedVideoADWithSlotId</Button>
+                <Button type='primary' onClick={this.showRewardAlertHandler.bind(this)}>showRewardAlert</Button><br/>
+                <Button onClick={this.showRewardedVideoADWithSlotIdHandler.bind(this)}>showRewardedVideoADWithSlotId</Button>
             </div>
         );
     }
 
-    showRewardAlert() {
+    showRewardAlertHandler(e?:React.MouseEvent) {
         console.log(this)
         let luckInfo = {
             result: 'ok',
@@ -31,7 +35,7 @@ class Test extends Component {
         }
     }
 
-    showRewardedVideoADWithSlotId() {
+    showRewardedVideoADWithSlotIdHandler() {
         console.log(this)
         try {
             window.locJs.showRewardedVideoADWithSlotId("945059442");
@@ -40,7 +44,7 @@ class Test extends Component {
         }
     }
     videoCallBackSucceed(){
-        this.showRewardAlert()
+        this.showRewardAlertHandler()
     }
 }
 

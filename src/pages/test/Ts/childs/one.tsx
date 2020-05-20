@@ -4,25 +4,32 @@ interface IProps {
 }
 interface IState {
     color:'red' | 'blue',
-    n:number
+    n:number,
+    time:number
 }
 class One extends Component<IProps,IState> {
     constructor(props:IProps) {
         super(props);
         this.state={
             color:'red',
-            n:1
+            n:1,
+            time:0
         }
     }
     render() {
         return (
             <div>
                 <h3 style={{color:this.state.color}}>{this.props.name}</h3>
-                <button onTouchStart={this.isColorHandler}>isColor</button>
+                <button onClick={this.isColorHandler}>isColor</button>
             </div>
         );
     }
     isColorHandler=()=>{
+        let time=new Date().getTime()
+        console.log(time-this.state.time)
+        this.setState({
+            time
+        })
         let color=this.state.color
         if(color==='red'){
             this.setState({

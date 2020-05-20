@@ -21,3 +21,7 @@ export const Test  = Loadable({
     loader:()=>import("./TEST"),
     loading:Loading
 })
+export const TsExercise  = Loadable({
+    loader:()=>import("./tsExercies"),
+    loading:Loading
+})

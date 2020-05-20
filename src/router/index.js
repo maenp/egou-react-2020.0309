@@ -1,8 +1,9 @@
 import {
-    Home, Login,Home_1,Ts,Test
+    Home, Login, Home_1, Ts, Test, TsExercise
 } from "@pages/test"
 import noPage from '@pages/noPage'
 import allActivity from './allActivity'
+
 export const routes = [
     ...allActivity,
     {
@@ -11,7 +12,7 @@ export const routes = [
         name: "首页",
         component: Home,
         meta: {},
-        children:[
+        children: [
             {
                 key: "/home_1",
                 path: "/home/one",
@@ -40,6 +41,13 @@ export const routes = [
         path: "/test",
         name: "test",
         component: Test,
+        meta: {}
+    },
+    {
+        key: "/TsExercise",
+        path: "/TsExercise",
+        name: "TsExercise",
+        component: TsExercise,
         meta: {}
     },
     // {
